@@ -20,3 +20,10 @@ https://kickz.netlify.app/
 ## Journal
 
 11/09/2021
+- started project
+
+11/10/2021
+https://www.youtube.com/watch?v=WU6xkdGmQ6I
+- downloaded bootstrap from npm to use with React
+- npm install bootstrap
+- import 'bootstrap/dist/css/bootstrap.css'; -> index.js file
