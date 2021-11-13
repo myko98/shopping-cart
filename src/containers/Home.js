@@ -1,7 +1,7 @@
 import "./Home.css";
 import parka from "../assets/men/parka.webp";
 import coat from "../assets/women/oversized_coat.webp";
-
+import {Link} from  "react-router-dom";
 function Home() {
   return (
     <>
@@ -18,11 +18,18 @@ function Home() {
         <div class="men">
           <img class="image" src={parka} alt="" />
           <div class="overlay">
-            <button>Shop Mens</button>
+            <Link to="/men" className="btn btn-primary">
+              Shop Men's Clothing
+            </Link>
           </div>
         </div>
-        <div>
+        <div class="women">
           <img class="image" src={coat} alt="" />
+          <div class="overlay">
+            <Link to="/women" className="btn btn-primary">
+              Shop Women's Clothing
+            </Link>
+          </div>
         </div>
       </div>
     </>

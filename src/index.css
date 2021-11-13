@@ -1,3 +1,9 @@
 .nav-item {
   margin: 10px;
 }
+
+.navRight {
+  background: red;
+  display: flex;
+  align-items: center;
+}

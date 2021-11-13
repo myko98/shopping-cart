@@ -1,34 +1,51 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./containers/Home";
 import Checkout from "./containers/Checkout";
-import Shopping from "./containers/Shopping";
+import Men from "./containers/Men";
+import Women from "./containers/Women";
+import ItemDetail from "./containers/ItemDetail"
+
+import {
+  Navbar,
+  Container,
+  Nav,
+  NavItem,
+  NavDropdown,
+  MenuItem,
+} from "react-bootstrap";
 
 const RouteSwitch = () => {
   return (
     <>
       <Router>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-          <a class="navbar-brand" href="#">
-            Navbar
-          </a>
-          <div class="collapse navbar-collapse " id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <Link to="/">
-                <li class="nav-item active">Home</li>
-              </Link>
-              <Link to="/shopping">
-                <li class="nav-item">Shop</li>
-              </Link>
-              <Link to="/checkout">
-                <li class="nav-item">Checkout</li>
-              </Link>
-            </ul>
-          </div>
-        </nav>
+        <Navbar bg="light" expand="lg">
+          <Container>
+            <Navbar.Brand href="/">Uniqlo</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="ms-auto navRight">
+                <Link to="/">Home</Link>
+                <Link to="/checkout">Checkout</Link>
+
+                <NavDropdown title="Shop" id="basic-nav-dropdown">
+                  <Link to="/men">
+                    Men
+                  </Link>
+                  <NavDropdown.Divider />
+                  <Link to="/women">
+                    Women
+                  </Link>
+                </NavDropdown>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/shopping" element={<Shopping />} />
+          <Route path="/men" element={<Men />} />
+          <Route path="/women" element={<Women />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/men/:id" element={<ItemDetail />} />
         </Routes>
       </Router>
     </>

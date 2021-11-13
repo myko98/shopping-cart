@@ -35,3 +35,9 @@ https://www.youtube.com/watch?v=WU6xkdGmQ6I
 https://www.youtube.com/watch?v=exb2ab72Xhs&t=92s
 
 - creating home page, adding image hover that will route to mens clothing/womens clothing
+
+11/12/2021
+- finished up mvp home page
+- npm installed bootstrap to use bootstrap components
+- working on men section
+- added route for each specific men item -> now need to add content of specific item 
