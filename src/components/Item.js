@@ -1,11 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {Link } from "react-router-dom";
 
-const Item = ({ img, name, price }) => {
+const Item = ({ key, img, name, price }) => {
   let nameNoSpace = name.replaceAll(' ','-');
   return (
     <div>
-      <Link to={`/men/${nameNoSpace}`}>
+      <Link state={{name}} to={`/men/${nameNoSpace}`}>
         <img src={img} alt="" />
       </Link>
 

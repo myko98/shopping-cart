@@ -41,3 +41,8 @@ https://www.youtube.com/watch?v=exb2ab72Xhs&t=92s
 - npm installed bootstrap to use bootstrap components
 - working on men section
 - added route for each specific men item -> now need to add content of specific item 
+
+11/13/2021
+https://ui.dev/react-router-pass-props-to-link/
+- passing props through react link component
+- passing name from item.js to our specific itemDetail component

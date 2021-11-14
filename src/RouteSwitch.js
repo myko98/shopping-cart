@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {useState, useEffect} from 'react';
 import Home from "./containers/Home";
 import Checkout from "./containers/Checkout";
 import Men from "./containers/Men";
 import Women from "./containers/Women";
 import ItemDetail from "./containers/ItemDetail"
+import menData from "./assets/men/menData"
 
 import {
   Navbar,
@@ -15,6 +17,9 @@ import {
 } from "react-bootstrap";
 
 const RouteSwitch = () => {
+
+  const [men,setMen] = useState(menData);
+
   return (
     <>
       <Router>
@@ -25,8 +30,6 @@ const RouteSwitch = () => {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto navRight">
                 <Link to="/">Home</Link>
-                <Link to="/checkout">Checkout</Link>
-
                 <NavDropdown title="Shop" id="basic-nav-dropdown">
                   <Link to="/men">
                     Men
@@ -36,16 +39,17 @@ const RouteSwitch = () => {
                     Women
                   </Link>
                 </NavDropdown>
+                <Link to="/checkout">Checkout</Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/men" element={<Men />} />
+          <Route path="/men" element={<Men men={men}/>} />
           <Route path="/women" element={<Women />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/men/:id" element={<ItemDetail />} />
+          <Route path="/men/:id" element={<ItemDetail men={men} setMen={setMen} />} />
         </Routes>
       </Router>
     </>

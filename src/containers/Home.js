@@ -9,23 +9,22 @@ function Home() {
         <iframe
           src="https://www.youtube.com/embed/efksZdXnqOU?start=0&autoplay=1&mute=1&controls=0&showinfo=0"
           title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          frameBorder="0"
+          allowFullScreen
         ></iframe>
       </div>
-      <div class="menu">
-        <div class="men">
-          <img class="image" src={parka} alt="" />
-          <div class="overlay">
+      <div className="menu">
+        <div className="men">
+          <img className="image" src={parka} alt="" />
+          <div className="overlay">
             <Link to="/men" className="btn btn-primary">
               Shop Men's Clothing
             </Link>
           </div>
         </div>
-        <div class="women">
-          <img class="image" src={coat} alt="" />
-          <div class="overlay">
+        <div className="women">
+          <img className="image" src={coat} alt="" />
+          <div className="overlay">
             <Link to="/women" className="btn btn-primary">
               Shop Women's Clothing
             </Link>

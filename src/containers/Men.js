@@ -1,13 +1,14 @@
 import "./Shopping.css";
 import menData from "../assets/men/menData";
 import Item from "../components/Item";
-function Men() {
+function Men({men}) {
+  console.log(men);
   return (
     <>
       <h1>Hi from Mens Shopping</h1>
       <div className="shop">
         {menData.map((item) => (
-          <Item img={item.img} name={item.name} price={item.price} />
+          <Item key={item.id} img={item.img} name={item.name} price={item.price} />
         ))}
       </div>
     </>
