@@ -46,3 +46,8 @@ https://www.youtube.com/watch?v=exb2ab72Xhs&t=92s
 https://ui.dev/react-router-pass-props-to-link/
 - passing props through react link component
 - passing name from item.js to our specific itemDetail component
+
+11/14/2021
+https://stackoverflow.com/questions/56180569/es6-filter-array-of-object-were-a-property-exists
+- filter array of objects to return array of objects that includes a specific property
+- use this to update our basket for checkout page

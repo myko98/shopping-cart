@@ -4,13 +4,13 @@ const SpecificItem = ({ key, img, name, price, setMen, men}) => {
 
 
   const addQuantity = () => {
-    // let quantity = document.querySelector(".quantity");
-    // console.log(quantity.value)
+    let quantity = document.querySelector(".quantity");
+    let value = quantity.value
     let newMen = men.map((item) => 
-    item.name === name? {...item,quantity:1}: item)
+    item.name === name? {...item,quantity: value}: item)
 
     setMen(newMen);
-    console.log(men)
+
   }
 
 

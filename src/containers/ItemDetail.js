@@ -7,7 +7,6 @@ const ItemDetail = ({men, setMen}) => {
 
   const location = useLocation()
   const {name} = location.state
-  console.log(name)
 
   let specificItem = men.filter((item) => item.name === name)
   return (

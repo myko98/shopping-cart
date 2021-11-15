@@ -19,6 +19,16 @@ import {
 const RouteSwitch = () => {
 
   const [men,setMen] = useState(menData);
+  const [basket, setBasket] = useState([]);
+
+  useEffect(() => {
+
+
+      let newBasket = men.filter(item => Boolean(item.quantity))
+      setBasket(newBasket);
+      console.log(basket);
+
+  }, [men])
 
   return (
     <>
@@ -48,7 +58,7 @@ const RouteSwitch = () => {
           <Route path="/" element={<Home />} />
           <Route path="/men" element={<Men men={men}/>} />
           <Route path="/women" element={<Women />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout" element={<Checkout basket={basket}/>} />
           <Route path="/men/:id" element={<ItemDetail men={men} setMen={setMen} />} />
         </Routes>
       </Router>
