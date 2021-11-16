@@ -9,12 +9,13 @@ const ItemDetail = ({men, setMen}) => {
   const {name} = location.state
 
   let specificItem = men.filter((item) => item.name === name)
+
   return (
     <>
       <h1>{name}</h1>
       <div className="shop">
         {specificItem.map((item) => (
-          <SpecificItem key={item.id} img={item.img} name={item.name} price={item.price} men={men} setMen={setMen}/>
+          <SpecificItem key={item.id} id={item.id} img={item.img} name={item.name} price={item.price} men={men} setMen={setMen}/>
         ))}
       </div>
     </>

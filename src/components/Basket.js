@@ -19,7 +19,7 @@ const Basket = ({ basket }) => {
                 <div>Price ${item.price}</div>
               </div>
               <div className="basket-quantity">
-                <input type="number" value="1"/>
+                <input type="number" value={item.quantity}/>
               </div>
             </div>
           ))}

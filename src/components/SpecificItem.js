@@ -1,19 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 
-const SpecificItem = ({ key, img, name, price, setMen, men}) => {
+const SpecificItem = ({ key, id, img, name, price, setMen, men }) => {
+  const [amount, setAmount] = useState(1);
+  const [total, setTotal] = useState(0);
 
+  const changeAmount = (e) => {
+    setAmount(e.target.value);
+  };
 
   const addQuantity = () => {
-    let quantity = document.querySelector(".quantity");
-    let value = quantity.value
-    let newMen = men.map((item) => 
-    item.name === name? {...item,quantity: value}: item)
-
+    if (men[id].hasOwnProperty("quantity")) {
+      console.log('hi')
+      setTotal(prevState => prevState + parseInt(amount))
+      console.log(total)
+      let newMen = men.map((item) =>
+      item.name === name ? { ...item, quantity: total  } : item
+    );
     setMen(newMen);
+    } else {
+      let newMen = men.map((item) =>
+      item.name === name ? { ...item, quantity: amount } : item
+    );
+    setMen(newMen);
+    }
+   
 
-  }
-
-
+    
+  };
 
   return (
     <div>
@@ -21,7 +34,13 @@ const SpecificItem = ({ key, img, name, price, setMen, men}) => {
 
       <p>{name}</p>
       <p>{`$ ${price}`}</p>
-      <input className="quantity" type="number" min="1" max="90"/>
+      <input
+        className="quantity"
+        type="number"
+        min="1"
+        value={amount}
+        onChange={changeAmount}
+      />
       <button onClick={addQuantity}>Add to cart</button>
     </div>
   );
