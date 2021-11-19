@@ -1,7 +1,8 @@
-import Basket from "../components/Basket"
+import Basket from "../components/Basket";
+import React, { useContext } from "react";
 
-const Checkout = ({basket}) => {
-
+const Checkout = ({ basket }) => {
+  // const data = useContext(ItemContext);
 
   return (
     <div>

@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import {useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext } from "react";
 import Home from "./containers/Home";
 import Checkout from "./containers/Checkout";
-import Men from "./containers/Men";
+import ShoppingItem from "./containers/ShoppingItem";
 import Women from "./containers/Women";
-import ItemDetail from "./containers/ItemDetail"
-import menData from "./assets/men/menData"
+import ItemDetail from "./containers/ItemDetail";
+import menData from "./assets/men/menData";
+import womenData from "./assets/women/womenData";
 
 import {
   Navbar,
@@ -16,19 +17,32 @@ import {
   MenuItem,
 } from "react-bootstrap";
 
-const RouteSwitch = () => {
+const ItemContext = React.createContext({});
 
-  const [men,setMen] = useState(menData);
+const RouteSwitch = () => {
+  const [men, setMen] = useState(menData);
+  const [women, setWomen] = useState(womenData);
+
   const [basket, setBasket] = useState([]);
+  const [subTotal, setSubTotal] = useState(0);
 
   useEffect(() => {
+    let total = 0;
 
+    let newMenBasket = men.filter((item) => Boolean(item.quantity));
+    let newWomenBasket = women.filter((item) => Boolean(item.quantity));
 
-      let newBasket = men.filter(item => Boolean(item.quantity))
-      setBasket(newBasket);
-      console.log(basket);
+    console.log(newMenBasket);
+    newMenBasket.map((item) => {
+      total = total + item.quantity * item.price;
+    });
+    setSubTotal(total);
 
-  }, [men])
+    console.log(subTotal);
+
+    let newBasket = newMenBasket.concat(newWomenBasket);
+    setBasket(newBasket);
+  }, [men, women]);
 
   return (
     <>
@@ -41,26 +55,28 @@ const RouteSwitch = () => {
               <Nav className="ms-auto navRight">
                 <Link to="/">Home</Link>
                 <NavDropdown title="Shop" id="basic-nav-dropdown">
-                  <Link to="/men">
-                    Men
-                  </Link>
+                  <Link to="/men">Men</Link>
                   <NavDropdown.Divider />
-                  <Link to="/women">
-                    Women
-                  </Link>
+                  <Link to="/women">Women</Link>
                 </NavDropdown>
                 <Link to="/checkout">Checkout</Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/men" element={<Men men={men}/>} />
-          <Route path="/women" element={<Women />} />
-          <Route path="/checkout" element={<Checkout basket={basket}/>} />
-          <Route path="/men/:id" element={<ItemDetail men={men} setMen={setMen} />} />
-        </Routes>
+        <ItemContext.Provider value="hi">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/men" element={<ShoppingItem men={men} />} />
+            <Route path="/women" element={<ShoppingItem women={women} />} />
+            <Route path="/checkout" element={<Checkout basket={basket} />} />
+            <Route path="/men/:id" element={<ItemDetail men={men} setMen={setMen} />}/>
+            <Route
+              path="/women/:id"
+              element={<ItemDetail women={women} setWomen={setWomen} />}
+            />
+          </Routes>
+        </ItemContext.Provider>
       </Router>
     </>
   );

@@ -66,3 +66,13 @@ https://stackoverflow.com/questions/33661511/reactjs-key-undefined-when-accessed
 - in Specific Item.js
 
 stuggles: trying to add functionality so that you can set amount of a specific item, add to checkout basket, but if you go back to add more, it will update the amount of checkout basket by adding previous amount with new amount added
+
+11/18/2021
+- we're back
+- added functionality such that adding additional items within specific item will update checkout value!
+
+11/19/2021
+- added womens section
+- need to add functionality to checkout basketitems so that when switiching quantity will update state total value
+- trying to figure out how to use useContext...will solve tomorrow
+
