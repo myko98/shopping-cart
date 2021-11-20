@@ -3,10 +3,11 @@ import React, { useState, useEffect, useContext } from "react";
 import Home from "./containers/Home";
 import Checkout from "./containers/Checkout";
 import ShoppingItem from "./containers/ShoppingItem";
-import Women from "./containers/Women";
 import ItemDetail from "./containers/ItemDetail";
 import menData from "./assets/men/menData";
 import womenData from "./assets/women/womenData";
+
+import {ItemContext} from "./components/ItemContext"
 
 import {
   Navbar,
@@ -17,7 +18,6 @@ import {
   MenuItem,
 } from "react-bootstrap";
 
-const ItemContext = React.createContext({});
 
 const RouteSwitch = () => {
   const [men, setMen] = useState(menData);
@@ -32,13 +32,14 @@ const RouteSwitch = () => {
     let newMenBasket = men.filter((item) => Boolean(item.quantity));
     let newWomenBasket = women.filter((item) => Boolean(item.quantity));
 
-    console.log(newMenBasket);
     newMenBasket.map((item) => {
+      total = total + item.quantity * item.price;
+    });
+    newWomenBasket.map((item) => {
       total = total + item.quantity * item.price;
     });
     setSubTotal(total);
 
-    console.log(subTotal);
 
     let newBasket = newMenBasket.concat(newWomenBasket);
     setBasket(newBasket);
@@ -64,7 +65,7 @@ const RouteSwitch = () => {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <ItemContext.Provider value="hi">
+        <ItemContext.Provider value={{men, setMen, women, setWomen}}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/men" element={<ShoppingItem men={men} />} />

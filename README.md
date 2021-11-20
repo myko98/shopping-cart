@@ -70,9 +70,19 @@ stuggles: trying to add functionality so that you can set amount of a specific i
 11/18/2021
 - we're back
 - added functionality such that adding additional items within specific item will update checkout value!
-
-11/19/2021
 - added womens section
 - need to add functionality to checkout basketitems so that when switiching quantity will update state total value
 - trying to figure out how to use useContext...will solve tomorrow
+
+11/19/2021
+https://codeburst.io/use-es2015-object-rest-operator-to-omit-properties-38a3ecffe90
+https://stackoverflow.com/questions/53753276/javascript-spread-and-rest-syntax-to-remove-specific-property-from-object
+- update object to REMOVE a property
+- used in removing quantity property within an item in BasketItem.js when the number input becomes 0
+
+https://www.youtube.com/watch?v=lhMKvyLRWo0&t=160s
+- refreshing on how to use useContext
+- we make a seperate js file that exports our useContext object
+- this useContext object needs to be imported in whichever component we want to grab the values (props) from 
+
 
