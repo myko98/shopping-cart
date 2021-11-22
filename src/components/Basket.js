@@ -1,11 +1,20 @@
 import React , {useContext} from "react";
-import "./Basket.css";
 import BasketItem from "./BasketItem";
 import {ItemContext} from "../components/ItemContext"
 
 const Basket = ({ basket }) => {
+
+  const {subTotal} = useContext(ItemContext)
+
   
-  // const {subTotal} = useContext(ItemContext)
+
+  const roundToTwo = (num) => {
+    return +(Math.round(num + "e+2")  + "e-2");
+  }
+
+  const hst = roundToTwo(subTotal * .13);
+  const total = roundToTwo(hst+subTotal)
+
 
   if (basket.length === 0) {
     return <div>Cart is empty</div>;
@@ -20,10 +29,12 @@ const Basket = ({ basket }) => {
           ))}
         </div>
         <div className="order-summary">
-          <h1>Order Summary</h1>
           <p>Item(s) Subtotal</p>
-          {/* <p>{subTotal}</p> */}
-          <p>HST</p>
+          <p>{roundToTwo(subTotal)}</p>
+          <p>HST (13%)</p>
+          <p>{hst}</p>
+          <p>Total</p>
+          <p>{total}</p>
         </div>
       </div>
     </>

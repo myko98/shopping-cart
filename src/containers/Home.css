@@ -14,8 +14,10 @@ html {
   }
 
   .menu {
-    margin-top: 100px;
-    padding-bottom: 100px;
+    width: 1500px;
+    
+    margin: 100px auto;
+
     display: flex;
     justify-content: space-evenly;
   }

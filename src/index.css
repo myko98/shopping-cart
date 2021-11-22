@@ -1,9 +1,16 @@
+.navBar {
+  position: fixed;
+}
+
 .nav-item {
   margin: 10px;
 }
 
 .navRight {
-  background: red;
   display: flex;
   align-items: center;
+}
+
+.link {
+  text-decoration: none;
 }

@@ -20,6 +20,8 @@ import {
 
 
 const RouteSwitch = () => {
+
+
   const [men, setMen] = useState(menData);
   const [women, setWomen] = useState(womenData);
 
@@ -48,24 +50,24 @@ const RouteSwitch = () => {
   return (
     <>
       <Router>
-        <Navbar bg="light" expand="lg">
+        <Navbar className="navBar" bg="light" expand="lg">
           <Container>
             <Navbar.Brand href="/">Uniqlo</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto navRight">
-                <Link to="/">Home</Link>
+                <Link className="link" to="/">Home</Link>
                 <NavDropdown title="Shop" id="basic-nav-dropdown">
-                  <Link to="/men">Men</Link>
+                  <Link className="link" to="/men">Men</Link>
                   <NavDropdown.Divider />
-                  <Link to="/women">Women</Link>
+                  <Link className="link" to="/women">Women</Link>
                 </NavDropdown>
-                <Link to="/checkout">Checkout</Link>
+                <Link className="link" to="/checkout">Checkout</Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <ItemContext.Provider value={{men, setMen, women, setWomen}}>
+        <ItemContext.Provider value={{men, setMen, women, setWomen,subTotal}}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/men" element={<ShoppingItem men={men} />} />

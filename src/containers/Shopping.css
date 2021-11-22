@@ -1,6 +1,25 @@
-.shop {
+.shopping-page {
   width: 1500px;
   margin: 0 auto;
+  margin-top: 50px;
+}
+
+.shop {
+  margin-top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.shopping-img {
+  width: 300px;
+  height: 300px;
+}
+
+.shopping-price {
+  margin-top: -10px;
+  font-weight: bold;
+}
+
+.shopping-name {
+  margin-top: 10px;
 }

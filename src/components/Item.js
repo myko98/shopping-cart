@@ -6,12 +6,14 @@ const Item = ({ key, img, name, price, men, women }) => {
   if (women === undefined) {
     return (
       <div>
-        <Link state={{ name }} to={`/men/${nameNoSpace}`}>
-          <img src={img} alt="" />
-        </Link>
+        <div className="shopping-img">
+          <Link state={{ name }} to={`/men/${nameNoSpace}`}>
+            <img className="img" src={img} alt="" />
+          </Link>
+        </div>
 
-        <p>{name}</p>
-        <p>{`$ ${price}`}</p>
+        <p className="shopping-name">{name}</p>
+        <p className="shopping-price">{`$ ${price}`}</p>
       </div>
     );
   } else {
@@ -21,8 +23,8 @@ const Item = ({ key, img, name, price, men, women }) => {
           <img src={img} alt="" />
         </Link>
 
-        <p>{name}</p>
-        <p>{`$ ${price}`}</p>
+        <p className="shopping-name">{name}</p>
+        <p className="shopping-price">{`$ ${price}`}</p>
       </div>
     );
   }

@@ -1,6 +1,17 @@
 import React, { useState } from "react";
 
-const SpecificItem = ({key,menId, womenId,img,name,price,setMen,men,women,setWomen,}) => {
+const SpecificItem = ({
+  key,
+  menId,
+  womenId,
+  img,
+  name,
+  price,
+  setMen,
+  men,
+  women,
+  setWomen,
+}) => {
   const [amount, setAmount] = useState(1);
 
   const changeAmount = (e) => {
@@ -10,9 +21,7 @@ const SpecificItem = ({key,menId, womenId,img,name,price,setMen,men,women,setWom
   //console.log(men[id])
 
   const addQuantity = () => {
-  
     if (women === undefined) {
-      console.log(men[menId])
       //amount value is actually a string -> needs to be converted to integer
       if (men[menId].hasOwnProperty("quantity")) {
         let prevAmount = parseInt(men[menId].quantity);
@@ -44,23 +53,29 @@ const SpecificItem = ({key,menId, womenId,img,name,price,setMen,men,women,setWom
         );
         setWomen(newWomen);
       }
-     }
+    }
   };
 
   return (
-    <div>
-      <img src={img} alt="" />
+    <div className="specific-item">
+      <div className="specific-item__img">
+        <img className="img" src={img} alt="" />
+      </div>
 
-      <p>{name}</p>
-      <p>{`$ ${price}`}</p>
-      <input
-        className="quantity"
-        type="number"
-        min="1"
-        value={amount}
-        onChange={changeAmount}
-      />
-      <button onClick={addQuantity}>Add to cart</button>
+      <div className="specific-item__info">
+        <h1>{name}</h1>
+        <h1>{`$${price}`}</h1>
+        <p>Quantity</p>
+        <input
+          className="specific-item__quantity"
+          type="number"
+          min="1"
+          value={amount}
+          onChange={changeAmount}
+        />
+        <br></br>
+        <button className="specific-item__add" onClick={addQuantity}>ADD TO CART</button>
+      </div>
     </div>
   );
 };
