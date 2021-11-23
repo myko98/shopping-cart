@@ -53,7 +53,7 @@ const BasketItem = ({ item }) => {
       <div className="basket-item__right">
         <p>Quantity</p>
         <input className="right__quantity" type="number" min="1" onChange={changeAmount} value={amount} />
-        <button onClick={deleteItem}>Delete</button>
+        <button className="right__delete" onClick={deleteItem}>Delete</button>
       </div>
     </div>
   );

@@ -31,7 +31,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 10px 0px;
+  padding: 15px 15px;
+  border: 1px rgb(212, 212, 212) solid;
 }
 
 .basket-item__left{
@@ -45,7 +46,8 @@
 }
 
 .right__quantity {
-  width: 50px;
+  width: 86px;
+  margin-bottom: 20px;
 }
 
 .basket-item-info {
@@ -66,4 +68,22 @@
 
 .order-summary {
   width:18.5%;
+}
+
+.order-summary__line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.order-summary__header {
+  font-weight: bold;
+}
+
+.right__delete {
+  all:unset;
+  background: red;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
 }

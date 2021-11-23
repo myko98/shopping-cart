@@ -85,4 +85,8 @@ https://www.youtube.com/watch?v=lhMKvyLRWo0&t=160s
 - we make a seperate js file that exports our useContext object
 - this useContext object needs to be imported in whichever component we want to grab the values (props) from 
 
+11/22/2021
+- added final touches of CSS
+- DONE
+
 

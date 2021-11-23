@@ -19,9 +19,11 @@ const Item = ({ key, img, name, price, men, women }) => {
   } else {
     return (
       <div>
-        <Link state={{ name }} to={`/women/${nameNoSpace}`}>
-          <img src={img} alt="" />
-        </Link>
+        <div className="shopping-img">
+          <Link state={{ name }} to={`/women/${nameNoSpace}`}>
+            <img className="img" src={img} alt="" />
+          </Link>
+        </div>
 
         <p className="shopping-name">{name}</p>
         <p className="shopping-price">{`$ ${price}`}</p>
