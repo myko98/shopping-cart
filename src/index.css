@@ -1,10 +1,9 @@
-.navBar {
-  position: fixed;
-}
+@import "bootstrap/dist/css/bootstrap.css";
 
-.nav-item {
-  margin: 10px;
-}
+/* .navBar {
+  position: fixed;
+  width: 100%;
+}  */
 
 .navRight {
   display: flex;
@@ -14,3 +13,5 @@
 .link {
   text-decoration: none;
 }
+
+

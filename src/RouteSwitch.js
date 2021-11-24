@@ -7,7 +7,7 @@ import ItemDetail from "./containers/ItemDetail";
 import menData from "./assets/men/menData";
 import womenData from "./assets/women/womenData";
 
-import {ItemContext} from "./components/ItemContext"
+import { ItemContext } from "./components/ItemContext";
 
 import {
   Navbar,
@@ -18,10 +18,7 @@ import {
   MenuItem,
 } from "react-bootstrap";
 
-
 const RouteSwitch = () => {
-
-
   const [men, setMen] = useState(menData);
   const [women, setWomen] = useState(womenData);
 
@@ -41,7 +38,6 @@ const RouteSwitch = () => {
       total = total + item.quantity * item.price;
     });
     setSubTotal(total);
-
 
     let newBasket = newMenBasket.concat(newWomenBasket);
     setBasket(newBasket);
@@ -67,13 +63,20 @@ const RouteSwitch = () => {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <ItemContext.Provider value={{men, setMen, women, setWomen,subTotal}}>
+
+      
+        <ItemContext.Provider
+          value={{ men, setMen, women, setWomen, subTotal }}
+        >
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/men" element={<ShoppingItem men={men} />} />
             <Route path="/women" element={<ShoppingItem women={women} />} />
             <Route path="/checkout" element={<Checkout basket={basket} />} />
-            <Route path="/men/:id" element={<ItemDetail men={men} setMen={setMen} />}/>
+            <Route
+              path="/men/:id"
+              element={<ItemDetail men={men} setMen={setMen} />}
+            />
             <Route
               path="/women/:id"
               element={<ItemDetail women={women} setWomen={setWomen} />}
